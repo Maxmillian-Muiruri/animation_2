@@ -519,9 +519,10 @@ function render() {
 
   if (firstFrame) {
     firstFrame = false;
+    // Keep the loading overlay visible a bit longer so typewriter messages are seen
     setTimeout(() => {
       document.getElementById('pageOverlay').classList.add('fade-out');
-    }, 800);
+    }, 3500);
   }
 
   // Update main heart particle positions from animated vertices
