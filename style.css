@@ -39,8 +39,182 @@ svg {
   opacity: 1;
   transition: opacity 1.5s ease;
   pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* ---------- BIG PULSING HEART ---------- */
+#pageOverlay::before {
+  content: '❤';
+  position: relative;
+  z-index: 5;
+  font-size: 80px;
+  animation: loadingHeartPulse 1.4s ease-in-out infinite;
+  text-shadow: 0 0 40px #ff69b4, 0 0 80px #ff1493, 0 0 120px rgba(255,105,180,0.4);
+  line-height: 1;
+}
+
+@keyframes loadingHeartPulse {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 40px #ff69b4, 0 0 80px #ff1493, 0 0 120px rgba(255,105,180,0.4); }
+  50% { transform: scale(1.12); text-shadow: 0 0 60px #ff69b4, 0 0 120px #ff1493, 0 0 180px rgba(255,105,180,0.6); }
+}
+
+/* ---------- PULSE RING (SONAR) ---------- */
+.pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  margin-top: -60px;
+  border: 3px solid #ff69b4;
+  border-radius: 50%;
+  z-index: 3;
+  animation: pulseRing 2.5s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.5); opacity: 0.8; border-width: 3px; }
+  100% { transform: scale(2.8); opacity: 0; border-width: 1px; }
+}
+
+/* ---------- SPARKLE DOTS ---------- */
+.sparkle {
+  position: absolute;
+  z-index: 4;
+  color: #ffd700;
+  font-size: 10px;
+  animation: sparkleTwinkle 2s ease-in-out infinite;
+  pointer-events: none;
+  text-shadow: 0 0 8px #ffd700, 0 0 16px #ff69b4;
+}
+
+.sparkle.s1 { top: calc(50% - 130px); left: 50%; }
+.sparkle.s2 { top: calc(50% - 92px); left: calc(50% + 92px); }
+.sparkle.s3 { top: 50%; left: calc(50% + 130px); }
+.sparkle.s4 { top: calc(50% + 92px); left: calc(50% + 92px); }
+.sparkle.s5 { top: calc(50% + 130px); left: 50%; }
+.sparkle.s6 { top: calc(50% + 92px); left: calc(50% - 92px); }
+.sparkle.s7 { top: 50%; left: calc(50% - 130px); }
+.sparkle.s8 { top: calc(50% - 92px); left: calc(50% - 92px); }
+
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.6); }
+  25% { opacity: 1; transform: scale(1.2); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+  75% { opacity: 0.9; transform: scale(1.1); }
+}
+
+.sparkle.s2 { animation-delay: 0.25s; }
+.sparkle.s3 { animation-delay: 0.5s; }
+.sparkle.s4 { animation-delay: 0.75s; }
+.sparkle.s5 { animation-delay: 1s; }
+.sparkle.s6 { animation-delay: 1.25s; }
+.sparkle.s7 { animation-delay: 1.5s; }
+.sparkle.s8 { animation-delay: 1.75s; }
+
+/* ---------- TYPEWRITER ---------- */
+.typewriter {
+  position: relative;
+  height: 2em;
+  width: 80vw;
+  max-width: 500px;
+  margin-top: 28px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.typewriter-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  max-width: 100%;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+  border-right: 2px solid #ff69b4;
+  opacity: 0;
+  animation: type-cycle 30s steps(150) infinite backwards;
+}
+
+.typewriter-text:nth-child(1) { animation-delay: 0s; }
+.typewriter-text:nth-child(2) { animation-delay: 6s; }
+.typewriter-text:nth-child(3) { animation-delay: 12s; }
+.typewriter-text:nth-child(4) { animation-delay: 18s; }
+.typewriter-text:nth-child(5) { animation-delay: 24s; }
+
+@keyframes type-cycle {
+  0%, 10% { width: 0; opacity: 0; }
+  10%, 20% { width: 30em; opacity: 1; border-color: #ff69b4; }
+  20%, 25% { width: 0; opacity: 1; border-color: #ffb6c1; }
+  25%, 100% { width: 0; opacity: 0; border-color: #ff69b4; }
+}
+
+/* ---------- RISING BUBBLE HEARTS ---------- */
+.bubble {
+  position: fixed;
+  bottom: -40px;
+  z-index: 3;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  animation: bubbleRise 8s ease-in infinite;
+  text-shadow: 0 0 10px #ff69b4;
+}
+
+.bubble:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 12px; }
+.bubble:nth-child(2) { left: 22%; animation-delay: 1.3s; font-size: 16px; }
+.bubble:nth-child(3) { left: 38%; animation-delay: 2.6s; font-size: 10px; }
+.bubble:nth-child(4) { left: 55%; animation-delay: 0.7s; font-size: 15px; }
+.bubble:nth-child(5) { left: 72%; animation-delay: 3.2s; font-size: 11px; }
+.bubble:nth-child(6) { left: 88%; animation-delay: 1.9s; font-size: 13px; }
+
+@keyframes bubbleRise {
+  0% { transform: translateY(0) scale(0.4); opacity: 0; }
+  8% { opacity: 0.7; }
+  20% { opacity: 0.7; }
+  70% { opacity: 0.3; }
+  100% { transform: translateY(-110vh) scale(1); opacity: 0; }
+}
+
+/* ---------- PROGRESS HEARTS ---------- */
+.progress-hearts {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  pointer-events: none;
+  font-size: 20px;
+}
+
+.ph {
+  color: rgba(255, 255, 255, 0.15);
+  text-shadow: none;
+  transition: none;
+}
+
+.ph:nth-child(1) { animation: heartProgress 4s ease-in-out 0s infinite; }
+.ph:nth-child(2) { animation: heartProgress 4s ease-in-out 1.33s infinite; }
+.ph:nth-child(3) { animation: heartProgress 4s ease-in-out 2.67s infinite; }
+
+@keyframes heartProgress {
+  0%, 20% { color: rgba(255, 255, 255, 0.15); text-shadow: none; }
+  25%, 100% { color: #ff69b4; text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+}
+
+/* ---------- FADE OUT ---------- */
 #pageOverlay.fade-out {
   opacity: 0;
   pointer-events: none;
@@ -205,6 +379,36 @@ svg {
   svg {
     width: 90vw;
     height: auto;
+  }
+  .progress-hearts {
+    font-size: 16px;
+    bottom: 18px;
+  }
+  .typewriter-text {
+    font-size: 1em;
+  }
+  #pageOverlay::before {
+    font-size: 60px;
+  }
+  .pulse-ring {
+    width: 90px;
+    height: 90px;
+    margin-left: -45px;
+    margin-top: -45px;
+  }
+  .sparkle {
+    font-size: 8px;
+  }
+  .sparkle.s1 { top: calc(50% - 100px); left: 50%; }
+  .sparkle.s2 { top: calc(50% - 70px); left: calc(50% + 70px); }
+  .sparkle.s3 { top: 50%; left: calc(50% + 100px); }
+  .sparkle.s4 { top: calc(50% + 70px); left: calc(50% + 70px); }
+  .sparkle.s5 { top: calc(50% + 100px); left: 50%; }
+  .sparkle.s6 { top: calc(50% + 70px); left: calc(50% - 70px); }
+  .sparkle.s7 { top: 50%; left: calc(50% - 100px); }
+  .sparkle.s8 { top: calc(50% - 70px); left: calc(50% - 70px); }
+  .bubble {
+    font-size: 10px;
   }
 }
 

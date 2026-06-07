@@ -4,6 +4,15 @@
     <meta charset="UTF-8" />
     <title>Happy Birthday Tasha ❤</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" />
     <link rel="stylesheet" href="./style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
@@ -11,7 +20,35 @@
     />
   </head>
   <body>
-    <div id="pageOverlay"></div>
+    <div id="pageOverlay">
+      <div class="pulse-ring"></div>
+      <div class="sparkle s1">&#x2727;</div>
+      <div class="sparkle s2">&#x2727;</div>
+      <div class="sparkle s3">&#x2727;</div>
+      <div class="sparkle s4">&#x2727;</div>
+      <div class="sparkle s5">&#x2727;</div>
+      <div class="sparkle s6">&#x2727;</div>
+      <div class="sparkle s7">&#x2727;</div>
+      <div class="sparkle s8">&#x2727;</div>
+      <div class="typewriter">
+        <span class="typewriter-text">Preparing your surprise...</span>
+        <span class="typewriter-text">Something beautiful is coming...</span>
+        <span class="typewriter-text">Made with love, just for you...</span>
+        <span class="typewriter-text">Get ready Tasha... &#x1F338;</span>
+        <span class="typewriter-text">Your heart is loading... &#x2764;</span>
+      </div>
+      <div class="bubble b1">&#x2764;</div>
+      <div class="bubble b2">&#x2764;</div>
+      <div class="bubble b3">&#x2764;</div>
+      <div class="bubble b4">&#x2764;</div>
+      <div class="bubble b5">&#x2764;</div>
+      <div class="bubble b6">&#x2764;</div>
+      <div class="progress-hearts">
+        <span class="ph">&#x2764;</span>
+        <span class="ph">&#x2764;</span>
+        <span class="ph">&#x2764;</span>
+      </div>
+    </div>
     <!-- partial:index.partial.html -->
     <svg viewBox="0 0 600 552">
       <path
@@ -44,9 +81,8 @@
     <div class="click-hint">&#x2764; Click anywhere for love &#x2764;</div>
     <button id="musicToggle" class="music-btn">&#x1F3B5; Play Song</button>
     <!-- partial -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="./script.js"></script>
+    <script defer src="https://unpkg.com/three@0.136.0/build/three.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="./script.js"></script>
   </body>
 </html>

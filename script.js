@@ -9,6 +9,8 @@ window.onerror = function(msg, url, line, col, err) {
 
 console.clear();
 
+let firstFrame = true;
+
 /* SETUP */
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -23,12 +25,6 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio > 1 ? 2 : 1);
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
-
-setTimeout(() => {
-  document.getElementById('pageOverlay').classList.add('fade-out');
-}, 500);
-
-const controlsWebGL = new THREE.OrbitControls(camera, renderer.domElement);
 
 /* SHARED HELPERS */
 function screenToWorld(x, y, z = 0) {
@@ -520,6 +516,13 @@ musicBtn.addEventListener('click', () => {
 /* RENDERING */
 function render() {
   requestAnimationFrame(render);
+
+  if (firstFrame) {
+    firstFrame = false;
+    setTimeout(() => {
+      document.getElementById('pageOverlay').classList.add('fade-out');
+    }, 800);
+  }
 
   // Update main heart particle positions from animated vertices
   geometry.setFromPoints(vertices);
