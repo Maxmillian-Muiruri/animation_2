@@ -3,15 +3,29 @@ body {
   overflow: hidden;
   min-height: 100vh;
   width: 100vw;
-  background: linear-gradient(270deg, #ffb6c1, #ffd700, #f8bbd0, #fceabb, #c9b1ff, #ffb6c1);
+  background: linear-gradient(
+    270deg,
+    #ffb6c1,
+    #ffd700,
+    #f8bbd0,
+    #fceabb,
+    #c9b1ff,
+    #ffb6c1
+  );
   background-size: 300% 300%;
   animation: gradientBG 12s ease-in-out infinite;
 }
 
 @keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .controls {
@@ -32,8 +46,10 @@ svg {
 
 #pageOverlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: #1a1a2e;
   z-index: 1000;
   opacity: 1;
@@ -48,18 +64,34 @@ svg {
 
 /* ---------- BIG PULSING HEART ---------- */
 #pageOverlay::before {
-  content: '❤';
+  content: "❤";
   position: relative;
   z-index: 5;
   font-size: 80px;
   animation: loadingHeartPulse 1.4s ease-in-out infinite;
-  text-shadow: 0 0 40px #ff69b4, 0 0 80px #ff1493, 0 0 120px rgba(255,105,180,0.4);
+  text-shadow:
+    0 0 40px #ff69b4,
+    0 0 80px #ff1493,
+    0 0 120px rgba(255, 105, 180, 0.4);
   line-height: 1;
 }
 
 @keyframes loadingHeartPulse {
-  0%, 100% { transform: scale(1); text-shadow: 0 0 40px #ff69b4, 0 0 80px #ff1493, 0 0 120px rgba(255,105,180,0.4); }
-  50% { transform: scale(1.12); text-shadow: 0 0 60px #ff69b4, 0 0 120px #ff1493, 0 0 180px rgba(255,105,180,0.6); }
+  0%,
+  100% {
+    transform: scale(1);
+    text-shadow:
+      0 0 40px #ff69b4,
+      0 0 80px #ff1493,
+      0 0 120px rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    transform: scale(1.12);
+    text-shadow:
+      0 0 60px #ff69b4,
+      0 0 120px #ff1493,
+      0 0 180px rgba(255, 105, 180, 0.6);
+  }
 }
 
 /* ---------- PULSE RING (SONAR) ---------- */
@@ -79,8 +111,16 @@ svg {
 }
 
 @keyframes pulseRing {
-  0% { transform: scale(0.5); opacity: 0.8; border-width: 3px; }
-  100% { transform: scale(2.8); opacity: 0; border-width: 1px; }
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+    border-width: 3px;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+    border-width: 1px;
+  }
 }
 
 /* ---------- SPARKLE DOTS ---------- */
@@ -91,32 +131,85 @@ svg {
   font-size: 10px;
   animation: sparkleTwinkle 2s ease-in-out infinite;
   pointer-events: none;
-  text-shadow: 0 0 8px #ffd700, 0 0 16px #ff69b4;
+  text-shadow:
+    0 0 8px #ffd700,
+    0 0 16px #ff69b4;
 }
 
-.sparkle.s1 { top: calc(50% - 130px); left: 50%; }
-.sparkle.s2 { top: calc(50% - 92px); left: calc(50% + 92px); }
-.sparkle.s3 { top: 50%; left: calc(50% + 130px); }
-.sparkle.s4 { top: calc(50% + 92px); left: calc(50% + 92px); }
-.sparkle.s5 { top: calc(50% + 130px); left: 50%; }
-.sparkle.s6 { top: calc(50% + 92px); left: calc(50% - 92px); }
-.sparkle.s7 { top: 50%; left: calc(50% - 130px); }
-.sparkle.s8 { top: calc(50% - 92px); left: calc(50% - 92px); }
+.sparkle.s1 {
+  top: calc(50% - 130px);
+  left: 50%;
+}
+.sparkle.s2 {
+  top: calc(50% - 92px);
+  left: calc(50% + 92px);
+}
+.sparkle.s3 {
+  top: 50%;
+  left: calc(50% + 130px);
+}
+.sparkle.s4 {
+  top: calc(50% + 92px);
+  left: calc(50% + 92px);
+}
+.sparkle.s5 {
+  top: calc(50% + 130px);
+  left: 50%;
+}
+.sparkle.s6 {
+  top: calc(50% + 92px);
+  left: calc(50% - 92px);
+}
+.sparkle.s7 {
+  top: 50%;
+  left: calc(50% - 130px);
+}
+.sparkle.s8 {
+  top: calc(50% - 92px);
+  left: calc(50% - 92px);
+}
 
 @keyframes sparkleTwinkle {
-  0%, 100% { opacity: 0.2; transform: scale(0.6); }
-  25% { opacity: 1; transform: scale(1.2); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-  75% { opacity: 0.9; transform: scale(1.1); }
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.6);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
 }
 
-.sparkle.s2 { animation-delay: 0.25s; }
-.sparkle.s3 { animation-delay: 0.5s; }
-.sparkle.s4 { animation-delay: 0.75s; }
-.sparkle.s5 { animation-delay: 1s; }
-.sparkle.s6 { animation-delay: 1.25s; }
-.sparkle.s7 { animation-delay: 1.5s; }
-.sparkle.s8 { animation-delay: 1.75s; }
+.sparkle.s2 {
+  animation-delay: 0.25s;
+}
+.sparkle.s3 {
+  animation-delay: 0.5s;
+}
+.sparkle.s4 {
+  animation-delay: 0.75s;
+}
+.sparkle.s5 {
+  animation-delay: 1s;
+}
+.sparkle.s6 {
+  animation-delay: 1.25s;
+}
+.sparkle.s7 {
+  animation-delay: 1.5s;
+}
+.sparkle.s8 {
+  animation-delay: 1.75s;
+}
 
 /* ---------- TYPEWRITER ---------- */
 .typewriter {
@@ -136,28 +229,62 @@ svg {
   white-space: nowrap;
   width: 0;
   max-width: 100%;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   font-size: 1.5em;
   color: #ffd700;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 105, 180, 0.4);
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 0 40px rgba(255, 105, 180, 0.4);
   border-right: 2px solid #ffb6c1;
   opacity: 0;
   /* faster cycle so messages appear quickly during loading */
   animation: type-cycle 6s steps(60) infinite backwards;
 }
 
-.typewriter-text:nth-child(1) { animation-delay: 0s; }
-.typewriter-text:nth-child(2) { animation-delay: 1.2s; }
-.typewriter-text:nth-child(3) { animation-delay: 2.4s; }
-.typewriter-text:nth-child(4) { animation-delay: 3.6s; }
-.typewriter-text:nth-child(5) { animation-delay: 4.8s; }
+.typewriter-text:nth-child(1) {
+  animation-delay: 0s;
+}
+.typewriter-text:nth-child(2) {
+  animation-delay: 1.2s;
+}
+.typewriter-text:nth-child(3) {
+  animation-delay: 2.4s;
+}
+.typewriter-text:nth-child(4) {
+  animation-delay: 3.6s;
+}
+.typewriter-text:nth-child(5) {
+  animation-delay: 4.8s;
+}
+
+/* Ensure the first message is visible immediately while loading */
+.typewriter-text:first-child {
+  opacity: 1;
+  width: auto;
+  animation-delay: 0s;
+}
 
 @keyframes type-cycle {
-  0% { width: 0; opacity: 0; }
-  10% { width: 35em; opacity: 1; }
-  20% { width: 35em; opacity: 1; }
-  25% { width: 0; opacity: 1; }
-  100% { width: 0; opacity: 0; }
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  10% {
+    width: 35em;
+    opacity: 1;
+  }
+  20% {
+    width: 35em;
+    opacity: 1;
+  }
+  25% {
+    width: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
 }
 
 /* ---------- RISING BUBBLE HEARTS ---------- */
@@ -172,19 +299,55 @@ svg {
   text-shadow: 0 0 10px #ff69b4;
 }
 
-.bubble:nth-child(1) { left: 10%; animation-delay: 0s; font-size: 12px; }
-.bubble:nth-child(2) { left: 22%; animation-delay: 1.3s; font-size: 16px; }
-.bubble:nth-child(3) { left: 38%; animation-delay: 2.6s; font-size: 10px; }
-.bubble:nth-child(4) { left: 55%; animation-delay: 0.7s; font-size: 15px; }
-.bubble:nth-child(5) { left: 72%; animation-delay: 3.2s; font-size: 11px; }
-.bubble:nth-child(6) { left: 88%; animation-delay: 1.9s; font-size: 13px; }
+.bubble:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  font-size: 12px;
+}
+.bubble:nth-child(2) {
+  left: 22%;
+  animation-delay: 1.3s;
+  font-size: 16px;
+}
+.bubble:nth-child(3) {
+  left: 38%;
+  animation-delay: 2.6s;
+  font-size: 10px;
+}
+.bubble:nth-child(4) {
+  left: 55%;
+  animation-delay: 0.7s;
+  font-size: 15px;
+}
+.bubble:nth-child(5) {
+  left: 72%;
+  animation-delay: 3.2s;
+  font-size: 11px;
+}
+.bubble:nth-child(6) {
+  left: 88%;
+  animation-delay: 1.9s;
+  font-size: 13px;
+}
 
 @keyframes bubbleRise {
-  0% { transform: translateY(0) scale(0.4); opacity: 0; }
-  8% { opacity: 0.7; }
-  20% { opacity: 0.7; }
-  70% { opacity: 0.3; }
-  100% { transform: translateY(-110vh) scale(1); opacity: 0; }
+  0% {
+    transform: translateY(0) scale(0.4);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.7;
+  }
+  20% {
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-110vh) scale(1);
+    opacity: 0;
+  }
 }
 
 /* ---------- PROGRESS HEARTS ---------- */
@@ -206,13 +369,29 @@ svg {
   transition: none;
 }
 
-.ph:nth-child(1) { animation: heartProgress 4s ease-in-out 0s infinite; }
-.ph:nth-child(2) { animation: heartProgress 4s ease-in-out 1.33s infinite; }
-.ph:nth-child(3) { animation: heartProgress 4s ease-in-out 2.67s infinite; }
+.ph:nth-child(1) {
+  animation: heartProgress 4s ease-in-out 0s infinite;
+}
+.ph:nth-child(2) {
+  animation: heartProgress 4s ease-in-out 1.33s infinite;
+}
+.ph:nth-child(3) {
+  animation: heartProgress 4s ease-in-out 2.67s infinite;
+}
 
 @keyframes heartProgress {
-  0%, 20% { color: rgba(255, 255, 255, 0.15); text-shadow: none; }
-  25%, 100% { color: #ff69b4; text-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+  0%,
+  20% {
+    color: rgba(255, 255, 255, 0.15);
+    text-shadow: none;
+  }
+  25%,
+  100% {
+    color: #ff69b4;
+    text-shadow:
+      0 0 20px #ff69b4,
+      0 0 40px #ff1493;
+  }
 }
 
 /* ---------- FADE OUT ---------- */
@@ -228,8 +407,10 @@ svg {
   transform: translate(-50%, -50%);
   color: white;
   font-size: 3em;
-  font-family: 'Dancing Script', cursive, Arial, sans-serif;
-  text-shadow: 0 0 16px #ff69b4, 0 2px 8px rgba(0,0,0,0.5);
+  font-family: "Dancing Script", cursive, Arial, sans-serif;
+  text-shadow:
+    0 0 16px #ff69b4,
+    0 2px 8px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.1em;
   pointer-events: none;
   z-index: 2;
@@ -237,7 +418,7 @@ svg {
   line-height: 1.3;
   max-width: 55vw;
   user-select: none;
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 16px;
   padding: 12px 16px;
   -webkit-font-smoothing: antialiased;
@@ -245,26 +426,37 @@ svg {
 
 .heart-text span {
   opacity: 0;
-  transition: opacity 0.2s, color 0.5s;
+  transition:
+    opacity 0.2s,
+    color 0.5s;
   display: inline-block;
 }
 
 .heart-text .line1 span {
   color: #ffd700;
-  text-shadow: 0 0 20px #ffd700, 0 0 40px #ff69b4, 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow:
+    0 0 20px #ffd700,
+    0 0 40px #ff69b4,
+    0 2px 8px rgba(0, 0, 0, 0.5);
   font-size: 1.2em;
 }
 
 .heart-text .line2 span {
   color: #ff69b4;
   font-size: 0.9em;
-  text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff1493, 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow:
+    0 0 30px #ff69b4,
+    0 0 60px #ff1493,
+    0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .heart-text .line4 span {
   color: #ffb6c1;
   font-size: 0.55em;
-  text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff1493, 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow:
+    0 0 30px #ff69b4,
+    0 0 60px #ff1493,
+    0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .heart-text .line3 {
@@ -274,13 +466,16 @@ svg {
 }
 
 .heart-text .line3 p {
-  font-family: 'Dancing Script', cursive, Arial, sans-serif;
+  font-family: "Dancing Script", cursive, Arial, sans-serif;
   font-style: italic;
   font-weight: 700;
   color: #ffd700;
   font-size: 0.38em;
-  text-shadow: 0 0 30px #ffd700, 0 0 60px #ffaa00, 0 2px 8px rgba(0,0,0,0.5);
-  background: rgba(0,0,0,0.35);
+  text-shadow:
+    0 0 30px #ffd700,
+    0 0 60px #ffaa00,
+    0 2px 8px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.35);
   border-radius: 12px;
   padding: 8px 12px;
   line-height: 1.5;
@@ -302,7 +497,7 @@ svg {
   transform: translateX(-50%);
   z-index: 5;
   color: rgba(255, 255, 255, 0.5);
-  font-family: 'Dancing Script', cursive, Arial, sans-serif;
+  font-family: "Dancing Script", cursive, Arial, sans-serif;
   font-size: 1em;
   letter-spacing: 0.1em;
   pointer-events: none;
@@ -311,8 +506,15 @@ svg {
 }
 
 @keyframes hintPulse {
-  0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.8; transform: translateX(-50%) scale(1.05); }
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1.05);
+  }
 }
 
 .music-btn {
@@ -326,7 +528,7 @@ svg {
   border-radius: 50px;
   padding: 10px 20px;
   font-size: 1em;
-  font-family: 'Dancing Script', cursive, Arial, sans-serif;
+  font-family: "Dancing Script", cursive, Arial, sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
@@ -351,11 +553,12 @@ svg {
     max-width: 90vw;
     top: 50%;
     line-height: 1.2;
-    background: rgba(0,0,0,0.15);
+    background: rgba(0, 0, 0, 0.15);
     border-radius: 16px;
     padding: 8px 12px;
   }
-  .heart-text .line1, .heart-text .line2 {
+  .heart-text .line1,
+  .heart-text .line2 {
     white-space: nowrap;
   }
   .heart-text .line1 span {
@@ -403,14 +606,38 @@ svg {
   .sparkle {
     font-size: 8px;
   }
-  .sparkle.s1 { top: calc(50% - 100px); left: 50%; }
-  .sparkle.s2 { top: calc(50% - 70px); left: calc(50% + 70px); }
-  .sparkle.s3 { top: 50%; left: calc(50% + 100px); }
-  .sparkle.s4 { top: calc(50% + 70px); left: calc(50% + 70px); }
-  .sparkle.s5 { top: calc(50% + 100px); left: 50%; }
-  .sparkle.s6 { top: calc(50% + 70px); left: calc(50% - 70px); }
-  .sparkle.s7 { top: 50%; left: calc(50% - 100px); }
-  .sparkle.s8 { top: calc(50% - 70px); left: calc(50% - 70px); }
+  .sparkle.s1 {
+    top: calc(50% - 100px);
+    left: 50%;
+  }
+  .sparkle.s2 {
+    top: calc(50% - 70px);
+    left: calc(50% + 70px);
+  }
+  .sparkle.s3 {
+    top: 50%;
+    left: calc(50% + 100px);
+  }
+  .sparkle.s4 {
+    top: calc(50% + 70px);
+    left: calc(50% + 70px);
+  }
+  .sparkle.s5 {
+    top: calc(50% + 100px);
+    left: 50%;
+  }
+  .sparkle.s6 {
+    top: calc(50% + 70px);
+    left: calc(50% - 70px);
+  }
+  .sparkle.s7 {
+    top: 50%;
+    left: calc(50% - 100px);
+  }
+  .sparkle.s8 {
+    top: calc(50% - 70px);
+    left: calc(50% - 70px);
+  }
   .bubble {
     font-size: 10px;
   }
@@ -424,7 +651,8 @@ svg {
     line-height: 1.3;
     padding: 10px 14px;
   }
-  .heart-text .line1, .heart-text .line2 {
+  .heart-text .line1,
+  .heart-text .line2 {
     white-space: nowrap;
   }
   .click-hint {
@@ -446,7 +674,8 @@ svg {
     max-width: 95vw;
     padding: 6px 8px;
   }
-  .heart-text .line1, .heart-text .line2 {
+  .heart-text .line1,
+  .heart-text .line2 {
     white-space: nowrap;
   }
   .click-hint {
@@ -469,11 +698,22 @@ svg {
     max-width: 70vw;
     padding: 6px 12px;
   }
-  .heart-text .line1, .heart-text .line2 { white-space: nowrap; }
-  .heart-text .line1 span { font-size: 1em; }
-  .heart-text .line2 span { font-size: 0.7em; }
-  .heart-text .line4 span { font-size: 0.45em; }
-  .click-hint { display: none; }
+  .heart-text .line1,
+  .heart-text .line2 {
+    white-space: nowrap;
+  }
+  .heart-text .line1 span {
+    font-size: 1em;
+  }
+  .heart-text .line2 span {
+    font-size: 0.7em;
+  }
+  .heart-text .line4 span {
+    font-size: 0.45em;
+  }
+  .click-hint {
+    display: none;
+  }
   .music-btn {
     padding: 6px 12px;
     font-size: 0.75em;
